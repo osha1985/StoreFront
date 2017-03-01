@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * The type Billing controller.
- */
+
 @RestController()
 @RequestMapping("/billing")
 public class BillingController {

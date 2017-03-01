@@ -1,0 +1,5 @@
+server:
+  port: 23405
+spring:
+  application:
+    name: price

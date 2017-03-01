@@ -9,25 +9,7 @@ public class Cart {
     @Id
     private String cartId;
     private Integer userId;
-    private List<Item> item;
-
-    public Cart() {
-    }
-
-    public Cart(String cartId, Integer userId, List<Item> item) {
-        this.cartId = cartId;
-        this.userId = userId;
-        this.item = item;
-    }
-
-    @Override
-    public String toString() {
-        return "Cart{" +
-                "cartId='" + cartId + '\'' +
-                ", userId=" + userId +
-                ", item=" + item +
-                '}';
-    }
+    private List<Product> products;
 
     public String getCartId() {
         return cartId;
@@ -45,11 +27,11 @@ public class Cart {
         this.userId = userId;
     }
 
-    public List<Item> getItem() {
-        return item;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setItem(List<Item> item) {
-        this.item = item;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
