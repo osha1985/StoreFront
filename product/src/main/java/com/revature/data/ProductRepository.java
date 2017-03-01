@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductRepository extends MongoRepository<Product, Integer> {
     @Override
-    <S extends Product> S save(S Product);
+    <S extends Product> S save(S product);
 
     @Override
     Product findOne(Integer integer);
