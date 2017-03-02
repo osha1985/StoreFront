@@ -1,8 +1,8 @@
 server:
-  port: 23405
+  port: 8723
 spring:
   application:
-    name: price
+    name: zuul
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1

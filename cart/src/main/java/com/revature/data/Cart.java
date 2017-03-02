@@ -7,31 +7,35 @@ import java.util.List;
 public class Cart {
 
     @Id
-    private String cartId;
-    private Integer userId;
-    private List<Product> products;
+    private int cartId;
+    private int userId;
+    private List<Item> items;
 
-    public String getCartId() {
+    public Cart() {
+        super();
+    }
+
+    public int getCartId() {
         return cartId;
     }
 
-    public void setCartId(String cartId) {
+    public void setCartId(int cartId) {
         this.cartId = cartId;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }

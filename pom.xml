@@ -10,7 +10,7 @@
     <name>shopping cart</name>
 
     <modules>
-        <module>zuulgateway</module>
+        <module>zuul</module>
         <module>apigateway</module>
         <module>eureka</module>
         <module>product</module>
@@ -20,7 +20,7 @@
         <module>invoice</module>
         <module>price</module>
         <module>shipping</module>
-        <module>user</module>
+        <module>customer</module>
     </modules>
 
 </project>

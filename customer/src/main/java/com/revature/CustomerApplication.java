@@ -3,11 +3,13 @@ package com.revature;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@EnableDiscoveryClient
 @SpringBootApplication
-public class CartApplication {
+@EnableDiscoveryClient
+@EnableMongoRepositories
+public class CustomerApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(CartApplication.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

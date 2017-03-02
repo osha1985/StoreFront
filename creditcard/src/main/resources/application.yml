@@ -1,8 +1,8 @@
 server:
-  port: 23405
+  port: 44444
 spring:
   application:
-    name: price
+    name: creditcard
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1

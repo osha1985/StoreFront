@@ -7,49 +7,35 @@ import org.springframework.stereotype.Component;
 public class Item {
 
     @Id
-    private String itemId;
-    private String productId;
-    private Integer quantity;
+    private int itemId;
+    private Product product;
+    private int quantity;
 
-    public Item() {
-    }
-
-    public Item(String itemId, String productId, Integer quantity) {
-        this.itemId = itemId;
-        this.productId = productId;
-        this.quantity = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "itemId='" + itemId + '\'' +
-                ", productId='" + productId + '\'' +
-                ", quantity=" + quantity +
-                '}';
-    }
-
-    public String getItemId() {
+    public int getItemId() {
         return itemId;
     }
 
-    public void setItemId(String itemId) {
+    public void setItemId(int itemId) {
         this.itemId = itemId;
     }
 
-    public String getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Item() {
+        super();
     }
 }

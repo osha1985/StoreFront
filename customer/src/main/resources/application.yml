@@ -1,8 +1,8 @@
-server:
-  port: 23405
 spring:
   application:
-    name: price
+    name: user
+server:
+  port: 666
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1

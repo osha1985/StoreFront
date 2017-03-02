@@ -1,8 +1,8 @@
-server:
-  port: 23405
 spring:
   application:
-    name: price
+    name: cart
+server:
+  port: 22222
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
