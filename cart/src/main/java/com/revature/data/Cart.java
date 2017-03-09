@@ -1,6 +1,6 @@
 package com.revature.data;
 
-public class Item {
+public class Cart {
 
     private String itemId;
     private Product product;
@@ -30,7 +30,7 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Item() {
+    public Cart() {
         super();
     }
 }

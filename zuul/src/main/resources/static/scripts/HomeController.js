@@ -7,17 +7,4 @@ angular.module("MainApp").controller('HomeController', function ($scope, $http, 
         $log.info(response.data);
     }, function () {
     });
-    $http({
-        url: '/cart/carts/',
-        method: 'GET'
-    }).then(function (response) {
-        $scope.carts = response.data['_embedded'].carts;
-    });
-
-    if($scope.carts.length == 0) {
-        $http({
-            url: 'cart/carts/',
-            method:
-        })
-    }
 });

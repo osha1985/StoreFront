@@ -39,22 +39,17 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
         });
     };
     $scope.addToCart = function (product) {
-        var selectedQuantity = angular.element('#quantityInput').val();
         $http({
-            url: '/cart/carts',
-            method: 'GET'
+            url: '/item/items',
+            method: 'POST',
+            data: {
+                product:product,
+                quantity:
+            }
         }, function(response){
             var carts = response.data['_embedded']['carts'];
         }, function(response) {
 
-        });
-
-        $http({
-            url: '/shopping/cart/addCartItem',
-            method: 'POST',
-            data: {
-
-            }
         });
     };
 });

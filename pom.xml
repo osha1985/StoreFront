@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.revature</groupId>
-    <artifactId>shoppingcart</artifactId>
+    <artifactId>storefront</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>shopping cart</name>
@@ -14,7 +14,7 @@
         <module>eureka</module>
         <module>product</module>
         <module>address</module>
-        <module>item</module>
+        <module>cart</module>
         <module>creditcard</module>
         <module>invoice</module>
         <module>price</module>

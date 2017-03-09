@@ -4,16 +4,16 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface ItemRepository extends MongoRepository <Item, String> {
+public interface CartRepository extends MongoRepository <Cart, String> {
 
     //insert a new cart or update if id already exist
-    <S extends Item> S save (S item);
+    <S extends Cart> S save (S item);
 
     //find by cart id
-    Item findOne(String id);
+    Cart findOne(String id);
 
     @Override
-    List<Item> findAll();
+    List<Cart> findAll();
 
 
 }
