@@ -1,21 +1,16 @@
 package com.revature.data;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Component;
-
-@Component
 public class Item {
 
-    @Id
-    private int itemId;
+    private String itemId;
     private Product product;
     private int quantity;
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 

@@ -11,11 +11,10 @@
 
     <modules>
         <module>zuul</module>
-        <module>apigateway</module>
         <module>eureka</module>
         <module>product</module>
         <module>address</module>
-        <module>cart</module>
+        <module>item</module>
         <module>creditcard</module>
         <module>invoice</module>
         <module>price</module>

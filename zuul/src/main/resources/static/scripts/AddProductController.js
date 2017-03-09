@@ -16,7 +16,6 @@ angular.module("MainApp").controller('AddProductController', function ($scope, $
             url: '/product/products',
             method: 'POST',
             data: {
-                "productId": $scope.productId,
                 "productName": $scope.productName,
                 "price": $scope.price,
                 "information": $scope.information,

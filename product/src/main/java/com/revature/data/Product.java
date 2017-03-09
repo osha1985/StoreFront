@@ -1,13 +1,12 @@
 package com.revature.data;
 
-
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 public class Product {
     @Id
-    private int productId;
+    private String productId;
     private String productName;
     private double price;
     private String information;
@@ -53,11 +52,11 @@ public class Product {
         super();
     }
 
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 

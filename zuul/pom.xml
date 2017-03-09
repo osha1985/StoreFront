@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
+        <version>1.5.1.RELEASE</version>
     </parent>
 
     <properties>
@@ -52,8 +52,8 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId> <!--changed-->
-                <version>Camden.SR5</version> <!--changed-->
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Camden.SR5</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -84,7 +84,6 @@
                     <imageName>${project.artifactId}</imageName>
                     <baseImage>java:8</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
