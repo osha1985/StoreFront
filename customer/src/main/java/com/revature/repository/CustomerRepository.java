@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends MongoRepository<Customer, Integer> {
+public interface CustomerRepository extends MongoRepository<Customer, Integer> {
     @Override
     <S extends Customer> S save(S customer);
 
