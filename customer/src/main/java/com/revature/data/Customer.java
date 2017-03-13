@@ -10,9 +10,6 @@ public class Customer {
     private String lastName;
     private String username;
     private String password;
-    private int cartId;
-    private int creditCardId;
-    private int addressId;
 
     public int getCustomerId() {
         return customerId;
@@ -52,30 +49,6 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
-
-    public int getCreditCardId() {
-        return creditCardId;
-    }
-
-    public void setCreditCardId(int creditCardId) {
-        this.creditCardId = creditCardId;
-    }
-
-    public int getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
     }
 
     public Customer() {

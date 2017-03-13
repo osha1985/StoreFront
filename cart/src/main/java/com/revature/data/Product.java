@@ -1,12 +1,9 @@
 package com.revature.data;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.List;
 
 
 public class Product {
-    @Id
     private int productId;
     private String productName;
     private double price;

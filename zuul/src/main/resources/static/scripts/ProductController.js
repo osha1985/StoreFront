@@ -38,18 +38,27 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
             alert("The review failed to submit");
         });
     };
-    $scope.addToCart = function (product) {
+    $scope.addToCart = function () {
         $http({
-            url: '/item/items',
+            url: '/cart/carts',
             method: 'POST',
             data: {
-                product:product,
-                quantity:
+                product: {
+                    "productName": $scope.product.productName,
+                    "price": $scope.product.price,
+                    "information": $scope.product.information,
+                    "description": $scope.product.description,
+                    "manufacturer": $scope.product.manufacturer,
+                    "productImage": $scope.product.productImage,
+                    "availableQuantity": $scope.product.availableQuantity,
+                    "reviews": $scope.product.reviews
+                },
+                quantity: $scope.quantity
             }
-        }, function(response){
-            var carts = response.data['_embedded']['carts'];
-        }, function(response) {
-
+        }, function () {
+            alert("Success");
+        }, function () {
+            alert("Failure");
         });
     };
 });

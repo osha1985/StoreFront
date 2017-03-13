@@ -1,36 +1,50 @@
 package com.revature.data;
 
-public class Cart {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    private String itemId;
-    private Product product;
-    private int quantity;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-    public String getItemId() {
-        return itemId;
+@Document
+public class Cart implements Iterable<Item> {
+
+    @Id
+    private String cartId;
+    private List<Item> items;
+
+    public String getCartId() {
+        return cartId;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
     }
 
-    public Product getProduct() {
-        return product;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public Cart setItems(List<Item> items) {
+        this.items = items;
+        return this;
     }
 
-    public int getQuantity() {
-        return quantity;
+    @Override
+    public Iterator<Item> iterator() {
+        return (items != null
+                ? Collections.unmodifiableList(items).iterator()
+                : Collections.emptyIterator());
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public Cart add(Item item) {
+        if (items == null) {
+            items = new ArrayList<>();
+        }
+        items.add(item);
+        return this;
     }
 
-    public Cart() {
-        super();
-    }
 }

@@ -1,28 +1,28 @@
 package com.revature.repository;
 
-import com.revature.data.User;
+import com.revature.data.Customer;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends MongoRepository<User, Integer> {
+public interface UserRepository extends MongoRepository<Customer, Integer> {
     @Override
-    <S extends User> S save(S user);
-
-    @Override
-    User findOne(Integer integer);
+    <S extends Customer> S save(S customer);
 
     @Override
-    List<User> findAll();
+    Customer findOne(Integer integer);
 
     @Override
-    List<User> findAll(Sort sort);
+    List<Customer> findAll();
 
-    User findOneByLastName(@Param("lastName") String lastName);
+    @Override
+    List<Customer> findAll(Sort sort);
 
-    User findOneByFirstName(@Param("firstName") String firstName);
+    Customer findOneByLastName(@Param("lastName") String lastName);
+
+    Customer findOneByFirstName(@Param("firstName") String firstName);
 
 }
 
