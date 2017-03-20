@@ -43,8 +43,6 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
             $rootScope.cart.items[$scope.product.productId] = 0;
         }
         $rootScope.cart.items[$scope.product.productId] += $scope.quantity;
-        alert($rootScope.cart.items[$scope.product.productId]);
-
         $http({
             url: '/cart/carts/' + $rootScope.cart.cartId,
             method: 'PUT',
