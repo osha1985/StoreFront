@@ -5,17 +5,17 @@ import org.springframework.data.annotation.Id;
 
 public class Customer {
     @Id
-    private int customerId;
+    private String customerId;
     private String firstName;
     private String lastName;
     private String username;
     private String password;
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -49,9 +49,5 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Customer() {
-        super();
     }
 }

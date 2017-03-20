@@ -1,4 +1,4 @@
-angular.module('MainApp').controller('SignupController', function ($scope) {
+angular.module('MainApp').controller('SignupController', function ($scope, $http) {
     $scope.submit = function () {
         $http({
             url: '/customer/customers',
@@ -9,10 +9,19 @@ angular.module('MainApp').controller('SignupController', function ($scope) {
                 'username': $scope.username,
                 'password': $scope.password
             }
-        }).then(function () {
+        }).then(function (response) {
             alert("Success");
+            $http({
+                url: '/cart/carts',
+                method: 'POST',
+                data: {
+                    'customerId': response.data.customerId,
+                    'items': {}
+                }
+            });
         }, function () {
             alert("Failure");
         });
+
     };
 });

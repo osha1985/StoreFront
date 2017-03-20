@@ -39,6 +39,9 @@
     <script src="scripts/HomeController.js"></script>
     <script src="scripts/ProductController.js"></script>
     <script src="scripts/AddProductController.js"></script>
+    <script src="scripts/LoginController.js"></script>
+    <script src="scripts/SignupController.js"></script>
+    <script src="scripts/CartController.js"></script>
 </head>
 
 <body ng-app="MainApp" ng-controller="MainController">
@@ -50,11 +53,11 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li ng-if="loggedIn">
                         <a href="#Cart">Cart</a>
                     </li>
-                    <li ng-show="loggedIn">Hello {{firstName}} {{lastName}}</li>
-                    <li ng-hide="loggedin"><a href="#login">Please log in</a></li>
+                    <li ng-if="loggedIn"><a href="#">Hello {{customer.firstName}} {{customer.lastName}}</a></li>
+                    <li ng-if="!loggedIn"><a href="#login">Please log in</a></li>
                 </ul>
             </div>
         </div>

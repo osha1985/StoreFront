@@ -1,8 +1,9 @@
+
 angular.module("MainApp", ['ngRoute']);
+
 angular.module("MainApp").config(function ($logProvider) {
     $logProvider.debugEnabled(true);
 });
-
 angular.module("MainApp").controller("MainController", function ($scope, $rootScope) {
     $rootScope.loggedIn = false;
 }).config(function ($routeProvider, $locationProvider) {

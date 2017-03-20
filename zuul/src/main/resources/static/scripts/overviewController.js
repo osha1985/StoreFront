@@ -1,7 +1,6 @@
-angular.module("MainApp").controller('OverviewController', function($http, $scope, $log, billingService, cartService){
+angular.module("MainApp").controller('OverviewController', function ($http, $scope, $log, billingService, cartService) {
 
     var cartId = "1";
-    $scope.discountCode;
 
     $scope.customer = {
         id: 7
@@ -34,9 +33,9 @@ angular.module("MainApp").controller('OverviewController', function($http, $scop
     });
 
 
-    $scope.validateCode = function(discountCode){
+    $scope.validateCode = function (discountCode) {
         $http({
-            url: "/shopping/price/validateDiscountCode/" + cartId +"/" + discountCode,
+            url: "/shopping/price/validateDiscountCode/" + cartId + "/" + discountCode,
             method: "GET"
         }).then(function (response) {
             $scope.prices.discount = parseFloat(response.data);

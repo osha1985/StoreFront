@@ -39,22 +39,16 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
         });
     };
     $scope.addToCart = function () {
+        if (!$rootScope.cart.items[$scope.product.productId]) {
+            $rootScope.cart.items[$scope.product.productId] = 0;
+        }
+        $rootScope.cart.items[$scope.product.productId] += $scope.quantity;
+        alert($rootScope.cart.items[$scope.product.productId]);
+
         $http({
-            url: '/cart/carts',
-            method: 'POST',
-            data: {
-                product: {
-                    "productName": $scope.product.productName,
-                    "price": $scope.product.price,
-                    "information": $scope.product.information,
-                    "description": $scope.product.description,
-                    "manufacturer": $scope.product.manufacturer,
-                    "productImage": $scope.product.productImage,
-                    "availableQuantity": $scope.product.availableQuantity,
-                    "reviews": $scope.product.reviews
-                },
-                quantity: $scope.quantity
-            }
+            url: '/cart/carts/' + $rootScope.cart.cartId,
+            method: 'PUT',
+            data: $rootScope.cart
         }, function () {
             alert("Success");
         }, function () {

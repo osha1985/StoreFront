@@ -1,19 +1,23 @@
 package com.revature.data;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
-@Document
-public class Cart implements Iterable<Item> {
+public class Cart {
 
     @Id
     private String cartId;
-    private List<Item> items;
+    private String customerId;
+    private Map<String, Integer> items;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
 
     public String getCartId() {
         return cartId;
@@ -23,28 +27,15 @@ public class Cart implements Iterable<Item> {
         this.cartId = cartId;
     }
 
-    public List<Item> getItems() {
+    public Map<String, Integer> getItems() {
         return items;
     }
 
-    public Cart setItems(List<Item> items) {
+    public void setItems(Map<String, Integer> items) {
         this.items = items;
-        return this;
     }
 
-    @Override
-    public Iterator<Item> iterator() {
-        return (items != null
-                ? Collections.unmodifiableList(items).iterator()
-                : Collections.emptyIterator());
+    public Cart() {
+        super();
     }
-
-    public Cart add(Item item) {
-        if (items == null) {
-            items = new ArrayList<>();
-        }
-        items.add(item);
-        return this;
-    }
-
 }

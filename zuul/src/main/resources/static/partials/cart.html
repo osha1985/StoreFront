@@ -1,47 +1,21 @@
 <div class="container">
-    <table id="cart" class="table table-hover table-condensed">
+    <table class="table">
         <thead>
         <tr>
-            <th style="width:50%">Product</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-            <th style="width:10%"></th>
+            <th>productId</th>
+            <th>description</th>
+            <th>manufacturer</th>
+            <th>price</th>
+            <th>quantity</th>
         </tr>
         </thead>
-
         <tbody>
-        <tr ng-repeat="item in itemList">
-            <div id="{{item.productId}}">
-                <td data-th="Product">
-                    <div class="row">
-                        <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-                        <div class="col-sm-10">
-                            <h4 class="nomargin">{{item.productName}}</h4>
-                            <p>{{item.description}}</p>
-                        </div>
-                    </div>
-                </td>
-                <td data-th="Price">{{item.price}}</td>
-                <td data-th="Quantity">
-                        <a class="button" ng-click="increaseItemCount(item)">+</a>
-                        <p>{{item.quantity}}</p>
-                        <a class="button" ng-click="decreaseItemCount(item)">-</a>
-                </td>
-                <td data-th="Subtotal" class="text-center">{{item.itemTotal}}</td>
-                <td class="actions" data-th="">
-                    <button id="{{item.itemId}}" class="btn btn-danger btn-sm" ng-click="removeItem(itemList,$index)">Remove Item</button>
-                </td>
-            </div>
+        <tr ng-repeat="cartItem in cartItems">
+            <td>{{cartItem.productId}}</td>
+            <td>{{cartItem.description}}</td>
+            <td>{{cartItem.manufacturer}}</td>
+            <td>{{cartItem.price}}</td>
+            <td>{{cartItem.quantity}}</td>
         </tr>
-        </tbody>
-
-        <tfoot>
-        <tr>
-            <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-            <td colspan="3" class="hidden-xs"></td>
-            <td><a href="#Billing" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-        </tr>
-        </tfoot>
     </table>
 </div>
