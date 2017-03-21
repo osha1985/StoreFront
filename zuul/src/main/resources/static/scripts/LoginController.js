@@ -1,4 +1,4 @@
-angular.module("MainApp").controller('LoginController', function ($scope, $rootScope, $http, $log) {
+angular.module("MainApp").controller('LoginController', function ($scope, $rootScope, $http) {
     $scope.login = function () {
         $http({
             url: "/customer/customers/search/findByUsername?username=" + $scope.username,
@@ -12,7 +12,6 @@ angular.module("MainApp").controller('LoginController', function ($scope, $rootS
                     method: 'GET'
                 }).then(function (response) {
                     $rootScope.cart = response.data;
-                    $log.info(response.data);
                 });
             } else {
                 alert("The user could not be found");

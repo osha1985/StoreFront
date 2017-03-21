@@ -10,7 +10,6 @@ angular.module('MainApp').controller('SignupController', function ($scope, $http
                 'password': $scope.password
             }
         }).then(function (response) {
-            alert("Success");
             $http({
                 url: '/cart/carts',
                 method: 'POST',
@@ -20,8 +19,6 @@ angular.module('MainApp').controller('SignupController', function ($scope, $http
                 }
             });
         }, function () {
-            alert("Failure");
         });
-
     };
 });

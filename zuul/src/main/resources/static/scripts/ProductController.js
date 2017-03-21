@@ -49,9 +49,7 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
             method: 'PUT',
             data: $rootScope.cart
         }, function () {
-            alert("Success");
         }, function () {
-            alert("Failure");
         });
     };
 });
