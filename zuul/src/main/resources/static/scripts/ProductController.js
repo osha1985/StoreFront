@@ -39,10 +39,11 @@ angular.module("MainApp").controller('ProductController', function ($scope, $roo
         });
     };
     $scope.addToCart = function () {
-        if (!$rootScope.cart.items[$scope.product.productId]) {
-            $rootScope.cart.items[$scope.product.productId] = 0;
+        if ($rootScope.cart.items[$scope.product.productId]) {
+            $rootScope.cart.items[$scope.product.productId] += $scope.quantity;
+        } else {
+            $rootScope.cart.items[$scope.product.productId] = $scope.quantity;
         }
-        $rootScope.cart.items[$scope.product.productId] += $scope.quantity;
         $http({
             url: '/cart/carts/' + $rootScope.cart.cartId,
             method: 'PUT',
