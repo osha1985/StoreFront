@@ -1,53 +1,53 @@
-angular.module("MainApp").controller('ProductController', function ($scope, $rootScope, $http, $routeParams) {
+angular.module("MainApp").controller('ProductController', function ($http, $routeParams, cart) {
+    let vm = this;
     $http({
         url: '/product/products/' + $routeParams['param'],
         method: 'GET'
     }).then(function (response) {
-        $scope.product = response.data;
+        vm.product = response.data;
     });
-    $scope.selectedTab = "description";
-    $scope.goToDescription = function () {
+    vm.goToDescription = function () {
         angular.element(".productTab").removeClass("active");
         angular.element(".tab-pane").removeClass("active");
         angular.element("#descriptionTab").addClass("active");
         angular.element("#description").addClass("active");
 
     };
-    $scope.goToReviews = function () {
+    vm.goToReviews = function () {
         angular.element(".productTab").removeClass("active");
         angular.element(".tab-pane").removeClass("active");
         angular.element("#reviewsTab").addClass("active");
         angular.element("#reviews").addClass("active");
     };
 
-    $scope.goToAddReview = function () {
+    vm.goToAddReview = function () {
         angular.element(".productTab").removeClass("active");
         angular.element(".tab-pane").removeClass("active");
         angular.element("#addReviewTab").addClass("active");
         angular.element("#addReview").addClass("active");
     };
-    $scope.submitComment = function (product) {
-        product.reviews.push(angular.element('#comment').val());
+    vm.submitComment = function () {
+        vm.product.reviews.push(angular.element('#comment').val());
         $http({
             url: '/product/products/' + $routeParams['param'],
             method: 'PUT',
-            data: product
+            data: vm.product
         }).then(function () {
             alert("The review was submitted successfully");
         }, function () {
             alert("The review failed to submit");
         });
     };
-    $scope.addToCart = function () {
-        if ($rootScope.cart.items[$scope.product.productId]) {
-            $rootScope.cart.items[$scope.product.productId] += $scope.quantity;
+    vm.addToCart = function () {
+        if (cart.items[vm.product.productId]) {
+            cart.items[vm.product.productId] += vm.quantity;
         } else {
-            $rootScope.cart.items[$scope.product.productId] = $scope.quantity;
+            cart.items[vm.product.productId] = vm.quantity;
         }
         $http({
-            url: '/cart/carts/' + $rootScope.cart.cartId,
+            url: '/cart/carts/' + cart.cartId,
             method: 'PUT',
-            data: $rootScope.cart
+            data: cart
         }, function () {
         }, function () {
         });

@@ -1,17 +1,20 @@
-angular.module("MainApp").controller('LoginController', function ($scope, $rootScope, $http) {
-    $scope.login = function () {
+angular.module("MainApp").controller('LoginController', function (customer, $http, cart, loggedIn) {
+    let vm = this;
+    vm.login = function () {
         $http({
-            url: "/customer/customers/search/findByUsername?username=" + $scope.username,
+            url: "/customer/customers/search/findByUsername?username=" + vm.username,
             method: 'GET'
         }).then(function (response) {
-            if (response.data.password === $scope.password) {
-                $rootScope.loggedIn = true;
-                $rootScope.customer = response.data;
+            if (response.data.password === vm.password) {
+                loggedIn = true;
+                customer = response.data;
                 $http({
                     url: '/cart/carts/search/findByCustomerId?customerId=' + response.data.customerId,
                     method: 'GET'
                 }).then(function (response) {
-                    $rootScope.cart = response.data;
+                    cart.cartId = response.data.cartId;
+                    cart.customerId = response.data.customerId;
+                    cart.items = response.data.items;
                 });
             } else {
                 alert("The user could not be found");

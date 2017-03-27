@@ -36,14 +36,6 @@ public class CreditCard {
 
     public CreditCard() {super();}
 
-    public CreditCard(int customerId, String fullName, Long number, Date expDate, Integer validate) {
-        this.customerId = customerId;
-        this.fullName = fullName;
-        this.number = number;
-        this.expDate = expDate;
-        this.validate = validate;
-    }
-
     public int getCustomerId() {return customerId;}
     public void setCustomerId(int customerId) {this.customerId = customerId;}
     public String getId() {return id;}

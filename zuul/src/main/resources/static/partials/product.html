@@ -4,27 +4,27 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="product col-md-3 service-image-left">
-                        <img id="item-display" data-ng-src="{{product.productImage}}" alt=""/>
+                        <img id="item-display" data-ng-src="{{productController.product.productImage}}" alt=""/>
                     </div>
                 </div>
 
                 <div class="col-md-7">
-                    <div class="product-title">{{product.productName}}</div>
-                    <div class="product-desc">{{product.information}}</div>
+                    <div class="product-title">{{productController.product.productName}}</div>
+                    <div class="product-desc">{{productController.product.information}}</div>
                     <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i
                             class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i>
                     </div>
                     <hr>
-                    <div class="product-price">$ {{product.price}}</div>
+                    <div class="product-price">$ {{productController.product.price}}</div>
                     <div class="product-stock">In Stock</div>
                     <hr>
                     <div class="form-group">
                         <label for="quantityInput">Quantity:</label>
                         <input type="number" class="form-control" id="quantityInput"
-                               max="{{product.availableQuantity}}" ng-model="quantity">
+                               max="{{productController.product.availableQuantity}}" ng-model="productController.quantity">
                     </div>
-                    <div ng-if="loggedIn"class="btn-group cart">
-                        <button type="button" class="btn btn-success" ng-click="addToCart()">Add to cart</button>
+                    <div ng-if="loggedIn" class="btn-group cart">
+                        <button type="button" class="btn btn-success" ng-click="productController.addToCart()">Add to cart</button>
                     </div>
                     <div class="btn-group wishlist">
                         <button type="button" class="btn btn-danger">Add to wishlist</button>
@@ -35,20 +35,20 @@
         <div class="container-fluid">
             <div class="col-md-12 product-info">
                 <ul id="myTab" class="nav nav-tabs nav_tabs">
-                    <li id="descriptionTab" class="active productTab"><a data-toggle="tab" ng-click="goToDescription()">DESCRIPTION</a>
+                    <li id="descriptionTab" class="active productTab"><a data-toggle="tab" ng-click="productController.goToDescription()">DESCRIPTION</a>
                     </li>
-                    <li id="reviewsTab" class="productTab"><a data-toggle="tab" ng-click="goToReviews()">REVIEWS</a>
+                    <li id="reviewsTab" class="productTab"><a data-toggle="tab" ng-click="productController.goToReviews()">REVIEWS</a>
                     </li>
-                    <li id="addReviewTab" class="productTab"><a data-toggle="tab" ng-click="goToAddReview()">ADD
+                    <li id="addReviewTab" class="productTab"><a data-toggle="tab" ng-click="productController.goToAddReview()">ADD
                         REVIEW</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane active" id="description">
-                        <section class="container product-info">{{product.description}}</section>
+                        <section class="container product-info">{{productController.product.description}}</section>
                     </div>
                     <div class="tab-pane" id="reviews">
                         <section class="container">
-                            <div class="row" ng-repeat="review in product.reviews">
+                            <div class="row" ng-repeat="review in productController.product.reviews">
                                 <div class="col-md-12">
                                     <p>{{review}}</p>
                                 </div>
@@ -61,7 +61,7 @@
                                 <label for="comment">Comment:</label>
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            <button ng-click="submitComment(product)" class="btn btn-primary">Submit comment</button>
+                            <button ng-click="submitComment()" class="btn btn-primary">Submit comment</button>
                         </section>
                     </div>
                 </div>

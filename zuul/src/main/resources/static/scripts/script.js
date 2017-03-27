@@ -1,39 +1,50 @@
-
 angular.module("MainApp", ['ngRoute']);
 
 angular.module("MainApp").config(function ($logProvider) {
     $logProvider.debugEnabled(true);
 });
-angular.module("MainApp").controller("MainController", function ($scope, $rootScope) {
-    $rootScope.loggedIn = false;
+angular.module("MainApp").controller("MainController", function (loggedIn, customer) {
+    let vm = this;
+    vm.loggedIn = loggedIn;
+    vm.firstName = customer.firstName;
+    vm.lastName = customer.lastName;
 }).config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix("");
     $routeProvider.when('/', {
         templateUrl: '../partials/home.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        controllerAs: 'homeController'
     }).when('/Cart', {
         templateUrl: "../partials/cart.html",
-        controller: 'CartController'
+        controller: 'CartController',
+        controllerAs: 'cartController'
     }).when('/Billing', {
         templateUrl: '../partials/billing.html',
-        controller: 'BillingController'
+        controller: 'BillingController',
+        controllerAs: 'billingController'
     }).when('/addProduct', {
         templateUrl: '../partials/addProduct.html',
-        controller: 'AddProductController'
+        controller: 'AddProductController',
+        controllerAs: 'addProductController'
     }).when('/Overview', {
         templateUrl: '../partials/overview.html',
-        controller: 'OverviewController'
+        controller: 'OverviewController',
+        controllerAs: 'overviewController'
     }).when('/reviews', {
         templateUrl: '../partials/reviews.html',
-        controller: 'ReviewsController'
+        controller: 'ReviewsController',
+        controllerAs: 'reviewsController'
     }).when('/product/:param', {
         templateUrl: '../partials/product.html',
-        controller: 'ProductController'
+        controller: 'ProductController',
+        controllerAs: 'productController'
     }).when('/login', {
         templateUrl: '../partials/login.html',
-        controller: 'LoginController'
+        controller: 'LoginController',
+        controllerAs: 'loginController'
     }).when('/signup', {
         templateUrl: '../partials/signup.html',
-        controller: 'SignupController'
+        controller: 'SignupController',
+        controllerAs: 'signupController'
     });
 });

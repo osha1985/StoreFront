@@ -1,13 +1,14 @@
 angular.module('MainApp').controller('SignupController', function ($scope, $http) {
-    $scope.submit = function () {
+    let vm = this;
+    vm.submit = function () {
         $http({
             url: '/customer/customers',
             method: 'POST',
             data: {
-                'firstName': $scope.firstName,
-                'lastName': $scope.lastName,
-                'username': $scope.username,
-                'password': $scope.password
+                'firstName': vm.firstName,
+                'lastName': vm.lastName,
+                'username': vm.username,
+                'password': vm.password
             }
         }).then(function (response) {
             $http({
